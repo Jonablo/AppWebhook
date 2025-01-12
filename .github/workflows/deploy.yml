@@ -1,0 +1,25 @@
+name: Webhook Servers Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  setup-environment:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Create and activate virtual environment
+        run: |
+          virtualenv venv
+          source ./venv/bin/activate
+          pip install -r requirements.txt
