@@ -20,6 +20,6 @@ jobs:
 
       - name: Create and activate virtual environment
         run: |
-          virtualenv venv
+          python virtualenv venv
           source ./venv/bin/activate
           pip install -r requirements.txt
